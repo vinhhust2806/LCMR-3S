@@ -16,7 +16,7 @@ Official PyTorch implementation
 
 # :fire: News
 * **(September xx, 2024)**
-  * Paper submmited at ***** 2025!🎊
+  * Paper submmited at ****** 2025!🎊
 <hr />
 
 ### Data
