@@ -17,7 +17,7 @@ Official PyTorch implementation
 
 <hr />
 
-### Data
+## 🏁 Dataset Preparation
 
 The Reddit and Twitter multimodal data used in our experiments are from the work of:
 
@@ -27,8 +27,6 @@ Gui, Tao, Liang Zhu, Qi Zhang, Minlong Peng, Xu Zhou, Keyu Ding, and Zhigang Che
 
 Please contact the respective authors for accessing the data.
 
-### Running experiments
+## 🚀 Training and Evaluating
 
-Our model definition can be found in the `models/` folder. 
-
-Training and Evaluating Experiments are defined in the bash script in `experiments/run_experiments.sh`.
+Experiments are defined in the bash script in `experiments/run_experiments.sh`.
