@@ -1,4 +1,4 @@
-# **LCMR-3S: Learning Cross-modality Representation via Selective State Space Model for Depression Detection on Social Media**
+# **LCMR-3S: Learning Cross-modality Representation via Selective State Space Model for Depression Detection on Social Media [****** 2025]
 
 [Quang Vinh Nguyen](https://github.com/vinhhust2806), 
 Thanh Dong Nguyen,
