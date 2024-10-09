@@ -11,6 +11,12 @@ Soo-Hyung Kim
 
 Official PyTorch implementation
 
+# :fire: News
+* **(September 16, 2024)**
+  * Paper submitted at ****** 2025 (Rank A) ! ⌚
+
+<hr />
+
 ### Data
 
 The Reddit and Twitter multimodal data used in our experiments are from the work of:
