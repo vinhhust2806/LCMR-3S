@@ -1,0 +1,5 @@
+$extends$: configs/base_config.yaml
+
+modality: image
+model: SingleModal
+timestamp_kind: 'relative'
