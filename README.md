@@ -2,7 +2,7 @@
 
 [Quang Vinh Nguyen](https://github.com/vinhhust2806), 
 Thanh Dong Nguyen,
-Duy Duc Nguyen,
+Duc Duy Nguyen,
 Doan Khai Ta,
 Ji-Eun Shin,
 Seung-Won Kim,
