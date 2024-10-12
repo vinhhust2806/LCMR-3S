@@ -1,6 +1,17 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.manifold import TSNE
+from sklearn.decomposition import PCA
+
+def visualize_sentiment_distribution(post):
+  pca = PCA(n_components=2)
+  post = pca.fit_transform(post)
+  
+  for i in range(post.shape[0]):
+    plt.scatter(post[i, 0], post[i, 1], c='green', alpha=0.6, edgecolors='w', s=50)
+    plt.text(post[i, 0], post[i, 1], f'{i}', fontsize=9, ha='right', va='bottom')
+  plt.title('Sentiment Distribution of Posts')
+  plt.show()
 
 def visualize_state_space(data1, data2, type):
     tsne = TSNE(n_components=2, random_state=42)
