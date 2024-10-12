@@ -23,7 +23,7 @@ use_class_weights: True
 model: LCMR-3S
 
 # can be tim2vec, learned or zero
-position_embeddings: time2vec
+position_embeddings: zero
 
 # can be relative or delta
 timestamp_kind: 'relative'
