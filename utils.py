@@ -1,7 +1,10 @@
-import yaml
 import os
 import glob
+import yaml
 import torch
+import pandas as pd 
+
+DATASET_PATH = 'MultiModalDataset'
 
 def extend_config(cfg_path, child=None):
     with open(cfg_path, "rt") as f:
@@ -44,3 +47,9 @@ def load_model(args):
         raise e
 
     return state_dict
+
+def extract_tweets_from_user(user_name, label):
+    user_path = f"{DATASET_PATH}/{label}/{user_name}/"
+    
+    user_timeline = pd.read_json(user_path+"timeline.txt", lines=True)
+    return user_timeline["text"].tolist()

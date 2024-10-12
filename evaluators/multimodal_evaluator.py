@@ -1,12 +1,12 @@
 import torch
-from scipy import stats
 import numpy as np
+import nomenclature
 import pandas as pd
 from tqdm import tqdm
-from torch.utils.data import DataLoader
+from scipy import stats
 from sklearn import metrics
 from evaluators import BaseEvaluator
-import nomenclature
+from torch.utils.data import DataLoader
 
 class MultimodalEvaluator(BaseEvaluator):
     def __init__(self, args, model):

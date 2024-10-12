@@ -1,7 +1,7 @@
-import torch
 import tqdm
-import torch.nn as nn
+import torch
 import numpy as np
+import torch.nn as nn
 
 class NotALightningTrainer(object):
     def __init__(self, args, callbacks, logger):

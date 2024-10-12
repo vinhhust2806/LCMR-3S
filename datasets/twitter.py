@@ -1,7 +1,7 @@
-import json
-import numpy as np
-import pickle
 import glob
+import json
+import pickle
+import numpy as np
 from datasets.time_dataset import TimeDataset
 
 DATA_PATH = "MultiModalDataset"

@@ -1,5 +1,5 @@
-from torch.utils.data import Dataset
 import numpy as np
+from torch.utils.data import Dataset
 
 class TimeDataset(Dataset):
     def __len__(self):
@@ -81,6 +81,7 @@ class TimeDataset(Dataset):
         dates = np.pad(dates, (0, padding_amount), "constant", constant_values=0.0)
 
         sample = {
+            'user': user_name,
             "image_embeddings": image_embeddings.astype(np.float32),
             "text_embeddings": text_embeddings.astype(np.float32),
             "image_mask": image_mask.astype(np.float32).reshape(
@@ -91,6 +92,7 @@ class TimeDataset(Dataset):
             ),
             "time": dates.astype(np.float32),
             "label": np.array([label]).astype(np.float32),
+            "idx": idxs
         }
 
         return sample

@@ -1,38 +1,33 @@
-import warnings
-import argparse
+import os
 import torch
 import wandb
 import pprint
-import os
-from torch.utils.data import DataLoader
-from utils import load_args
-from particular_model_trainers import Trainer
+import argparse
 import callbacks
-from trainer import NotALightningTrainer
-from loggers import WandbLogger
-from sklearn.utils.class_weight import compute_class_weight
 import numpy as np
 import nomenclature
+from utils import load_args
+from loggers import WandbLogger
+from torch.utils.data import DataLoader
+from trainer import NotALightningTrainer
+from particular_model_trainers import Trainer
+from sklearn.utils.class_weight import compute_class_weight
 
 torch.manual_seed(28)
 
 parser = argparse.ArgumentParser(description="Do stuff.")
-parser.add_argument("--config_file", type=str, required=True)
 
+parser.add_argument("--config_file", type=str, required=True)
 parser.add_argument("--name", type=str, default="test")
 parser.add_argument("--group", type=str, default="default")
 parser.add_argument("--notes", type=str, default="")
 parser.add_argument("--mode", type=str, default="dryrun")
-
 parser.add_argument("--epochs", type=int, default=200)
 parser.add_argument("--batch_size", type=int, default=256)
 parser.add_argument("--accumulation_steps", type=int, default=1)
-
 parser.add_argument("--log_every", type=int, default=5)
-
 parser.add_argument("--dataset", type=str, default=None)
 parser.add_argument("--fold", type=int, default=None)
-
 parser.add_argument("--window_size", type=int, default=None)
 parser.add_argument("--position_embeddings", type=str, default=None)
 parser.add_argument("--image_embeddings_type", type=str, default=None)

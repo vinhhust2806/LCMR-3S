@@ -1,9 +1,9 @@
-from torch.utils.data import Dataset
 import os
-import pandas as pd
-import numpy as np
 import cv2
 import glob
+import numpy as np
+import pandas as pd
+from torch.utils.data import Dataset
 
 DATASET_PATH = 'MultiModalDataset'
 

@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
-from models.layers.attention import SOCML
 from models.time2vec import Time2Vec
+from models.layers.attention import SOCML
 
 torch.manual_seed(28)
 
@@ -109,8 +109,9 @@ class LCMR3S(torch.nn.Module):
 
         for i in range(final_vector.size(1)):
             output, hidden = self.mamba(final_vector[:,i], hidden)
-
+        
+        ssm = output
         output = self.output_classification(output)     
         output_proba = torch.sigmoid(output)
 
-        return {"logits": output, "probas": output_proba}
+        return {"logits": output, "probas": output_proba, "cross": final_vector, "ssm": ssm}

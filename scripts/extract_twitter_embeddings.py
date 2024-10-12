@@ -1,4 +1,10 @@
-from sentence_transformers import SentenceTransformer
+import os
+import sys
+import tqdm
+import torch
+import pickle
+import argparse
+import numpy as np
 from transformers import (
     ViTFeatureExtractor,
     ViTModel,
@@ -16,21 +22,17 @@ from transformers import (
     AutoModel,
     AutoTokenizer,
 )
-import sys
-import os
+from sentence_transformers import SentenceTransformer
+
 sys.path.insert(0, 'datasets')
 from twitter_submission_dataset import TwitterSubmissionDataset
-import torch
-import pickle
-import tqdm
-import numpy as np
-import argparse
 
 parser = argparse.ArgumentParser(description="Do stuff.")
 parser.add_argument("--modality", type=str, required=True, default='image')
 parser.add_argument("--embs", type=str, required=True, default = 'clip')
 
 args = parser.parse_args()
+
 modality = args.modality
 embs = args.embs
 

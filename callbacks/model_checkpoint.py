@@ -1,7 +1,6 @@
-from .callback import Callback
 import os
 import torch
-
+from .callback import Callback
 
 class ModelCheckpoint(Callback):
     def __init__(

@@ -1,9 +1,7 @@
-import yaml
-from datasets import *
-from models import *
-from evaluators import MultimodalEvaluator
-
 import torch
+from models import *
+from datasets import *
+from evaluators import MultimodalEvaluator
 
 device = torch.device("cuda")
 
@@ -19,4 +17,5 @@ EVALUATORS = {
 MODELS = {
     "LCMR-3S": LCMR3S,
     "SingleModal": SingleModal,
+    "tlstm": TimeLSTM
 }

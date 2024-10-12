@@ -1,6 +1,5 @@
 import wandb
 
-
 class WandbLogger(object):
     def __init__(self):
         self.on_step_metrics = dict()

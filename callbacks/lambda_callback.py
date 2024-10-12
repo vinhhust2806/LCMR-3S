@@ -1,6 +1,5 @@
 from .callback import Callback
 
-
 class LambdaCallback(Callback):
     def __init__(
         self,
