@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 from models.layers.attention import SOCML
+from models.time2vec import Time2Vec
 
 torch.manual_seed(28)
 
@@ -25,9 +26,9 @@ class MambaModel(nn.Module):
     def init_hidden(self, batch_size):
         return torch.rand(batch_size, self.hidden_size)
     
-class LCMR(torch.nn.Module):
+class LCMR3S(torch.nn.Module):
     def __init__(self, args):
-        super(LCMR, self).__init__()
+        super(LCMR3S, self).__init__()
         self.args = args
 
         image_embedding_size = self.args.IMAGE_EMBEDDING_SIZES[
@@ -36,6 +37,17 @@ class LCMR(torch.nn.Module):
         text_embedding_size = self.args.TEXT_EMBEDDING_SIZES[
             self.args.text_embeddings_type
         ]
+        
+        if self.args.position_embeddings == "time2vec":
+            self.position_embeddings = Time2Vec(args)
+        elif self.args.position_embeddings == "learned":
+            self.position_embeddings = nn.Parameter(
+                torch.randn(
+                    1,
+                    self.args.window_size,
+                    self.args.cross_encoder_args["embedding_size"],
+                )
+            )
 
         self.image_projection = torch.nn.Linear(
             image_embedding_size, self.args.cross_encoder_args["embedding_size"]
@@ -72,9 +84,16 @@ class LCMR(torch.nn.Module):
 
         all_lang_feats = self.text_projection(batch["text_embeddings"])      
         all_visn_feats = self.image_projection(batch["image_embeddings"])       
+        
+        if self.args.position_embeddings == "time2vec":
+            position_embeddings = self.position_embeddings[batch["time"]]
+        elif self.args.position_embeddings == "learned":
+            position_embeddings = self.position_embeddings
+        else:
+            position_embeddings = torch.zeros_like(all_lang_feats)
 
-        lang_feats = all_lang_feats 
-        visn_feats = all_visn_feats 
+        lang_feats = all_lang_feats + position_embeddings
+        visn_feats = all_visn_feats + position_embeddings
 
         for layer_module in self.layers:
             lang_feats, visn_feats = layer_module(

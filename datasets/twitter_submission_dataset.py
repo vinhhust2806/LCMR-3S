@@ -5,7 +5,7 @@ import numpy as np
 import cv2
 import glob
 
-DATASET_PATH = '../../../MultiModalDataset'
+DATASET_PATH = 'MultiModalDataset'
 
 class TwitterSubmissionDataset(Dataset):
     def __init__(self, args=None, label="positive", users=None):

@@ -5,8 +5,8 @@ import glob
 from datasets.time_dataset import TimeDataset
 
 DATA_PATH = "MultiModalDataset"
-EMBEDDINGS_PATH_TEXT = "embeddings/twitter"
-EMBEDDINGS_PATH_IMAGES = "embeddings_correct/twitter"
+EMBEDDINGS_PATH_TEXT = "text_embedding/twitter"
+EMBEDDINGS_PATH_IMAGES = "image_embedding/twitter"
 
 class TwitterDataset(TimeDataset):
     def __init__(self, args, kind="train"):

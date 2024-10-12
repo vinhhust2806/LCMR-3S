@@ -16,36 +16,24 @@ num_folds: 5
 fold: 0
 
 # can be image, text, both
-modality: both
+modality: text
 
 use_class_weights: True
 
-model: LCMR-3S
-
-# can be tim2vec, learned or zero
-position_embeddings: zero
+model: tlstm
 
 # can be relative or delta
-timestamp_kind: 'relative'
+timestamp_kind: 'delta'
+
+# can be tim2vec, learned or zero
 
 image_embeddings_type: clip
 text_embeddings_type: roberta
-
-# can be sin or cos
-time2vec_activation: sin
 
 window_size: 128 
 
 base_lr: 0.00001
 
-cross_encoder_args:
-  embedding_size: 128
-  n_heads: 8
-  n_layers: 4   
-  dropout_prob: 0.1
-
-final_encoder_args:
-  embedding_size: 128
-  n_heads: 4
-  n_layers: 2
-  dropout_prob: 0.1
+model_args:
+  hidden_size: 256
+  embedding_size: 256

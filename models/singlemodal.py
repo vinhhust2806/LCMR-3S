@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+from models.time2vec import Time2Vec
 
 class MambaModel(nn.Module):
     def __init__(self, input_size, hidden_size, output_size, state_selection_threshold=0.):
@@ -36,6 +37,17 @@ class SingleModal(torch.nn.Module):
             modality_embedding_size = self.args.IMAGE_EMBEDDING_SIZES[
                 self.args.image_embeddings_type
             ]
+        
+        if self.args.position_embeddings == "time2vec":
+            self.position_embeddings = Time2Vec(args)
+        elif self.args.position_embeddings == "learned":
+            self.position_embeddings = nn.Parameter(
+                torch.randn(
+                    1,
+                    self.args.window_size,
+                    self.args.final_encoder_args["embedding_size"],
+                )
+            )
 
         self.modality_projection = torch.nn.Linear(
             modality_embedding_size, self.args.final_encoder_args["embedding_size"]
@@ -65,9 +77,14 @@ class SingleModal(torch.nn.Module):
 
     def forward(self, batch):
         modality_feats = self.modality_projection(batch["modality"])
-
-        position_embeddings = torch.zeros_like(modality_feats)
-
+        
+        if self.args.position_embeddings == "time2vec":
+            position_embeddings = self.position_embeddings[batch["time"]]
+        elif self.args.position_embeddings == "learned":
+            position_embeddings = self.position_embeddings
+        else:
+            position_embeddings = torch.zeros_like(modality_feats)
+    
         modality_feats = modality_feats + position_embeddings
 
         final_vector = self.final_transformer(modality_feats)

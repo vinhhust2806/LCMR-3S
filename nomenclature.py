@@ -8,7 +8,7 @@ import torch
 device = torch.device("cuda")
 
 DATASETS = {
-    "reddit": RedditDataset,
+    #"reddit": RedditDataset,
     "twitter": TwitterDataset,
 }
 
@@ -17,6 +17,6 @@ EVALUATORS = {
 }
 
 MODELS = {
-    "LCMR-3S": LCMR,
+    "LCMR-3S": LCMR3S,
     "SingleModal": SingleModal,
 }
