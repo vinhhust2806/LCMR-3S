@@ -17,23 +17,24 @@ Official PyTorch implementation
 
 <hr />
 
+## 💿 Installation
+
+```python
+pip install -r requirements.txt
+```
+
 ## 🏁 Dataset Preparation
 
-The Reddit and Twitter datasets used in our experiments, are from the works of:
+The used Reddit and Twitter datasets are from the great works of:
 
 Uban, Ana-Sabina, Berta Chulvi, and Paolo Rosso. [Explainability of Depression Detection on Social Media: From Deep Learning Models to Psychological Interpretations and Multimodality](https://link.springer.com/chapter/10.1007/978-3-031-04431-1_13). In Early Detection of Mental Health Disorders by Social Media Monitoring, pp. 289-320. Springer, Cham, 2022.
 
 Gui, Tao, Liang Zhu, Qi Zhang, Minlong Peng, Xu Zhou, Keyu Ding, and Zhigang Chen. [Cooperative Multimodal Approach to Depression Detection in Twitter](https://ojs.aaai.org/index.php/AAAI/article/view/3775). In Proceedings of the AAAI conference on Artificial Intelligence, vol. 33, no. 01, pp. 110-117. 2019.
 
 Please contact the respective authors for accessing the dataset.
-```python
-# Extract twitter-dates.json
-scripts/format_twitter.py
 
-# Extract image and text features
-python extract_twitter_embeddings.py --modality image --embs clip
-python extract_twitter_embeddings.py --modality text --embs roberta
-```
+Dataset preparation is defined in bash script in `scripts/extract_embeddings.sh`.
+
 
 ## 🚀 Training and Evaluating
 
