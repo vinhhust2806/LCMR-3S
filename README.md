@@ -25,16 +25,13 @@ pip install -r requirements.txt
 
 ## 🏁 Dataset Preparation
 
-The used Reddit and Twitter datasets are from the great works of:
+The Twitter dataset could be dowloaded [here](https://drive.google.com/open?id=11ye00sHFY5re2NOBRKreg-tVbDNrc7Xd).
+
+Please contact the respective authors in above referenced paper for accessing the Reddit dataset.
 
 Uban, Ana-Sabina, Berta Chulvi, and Paolo Rosso. [Explainability of Depression Detection on Social Media: From Deep Learning Models to Psychological Interpretations and Multimodality](https://link.springer.com/chapter/10.1007/978-3-031-04431-1_13). In Early Detection of Mental Health Disorders by Social Media Monitoring, pp. 289-320. Springer, Cham, 2022.
 
-Gui, Tao, Liang Zhu, Qi Zhang, Minlong Peng, Xu Zhou, Keyu Ding, and Zhigang Chen. [Cooperative Multimodal Approach to Depression Detection in Twitter](https://ojs.aaai.org/index.php/AAAI/article/view/3775). In Proceedings of the AAAI conference on Artificial Intelligence, vol. 33, no. 01, pp. 110-117. 2019.
-
-Please contact the respective authors for accessing the dataset.
-
 Dataset preparation is defined in bash script in `scripts/extract_embeddings.sh`.
-
 
 ## 🚀 Training and Evaluating
 
