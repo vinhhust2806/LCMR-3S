@@ -11,12 +11,6 @@ Soo-Hyung Kim
 
 Official PyTorch implementation
 
-# :fire: News
-* **(September 16, 2024)**
-  * Paper submitted at ****** 2025 (Rank A) ! ⌚
-
-<hr />
-
 ## 🌱 Installation
 
 ```python
