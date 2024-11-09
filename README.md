@@ -38,22 +38,48 @@ python extract_twitter_embeddings.py --modality text --embs minilm
 ## 🚀 Training and Evaluating
 ```python
 # Twitter
-python main.py  --config_file configs/combos/clip_roberta.yaml --name fold-0-twitter-ws-128-clip-roberta --group lcmr3s --dataset twitter --fold 0 --window_size 128 --position_embeddings zero --mode run --epochs 200 --batch_size 32
+python main.py  --config_file configs/combos/clip_roberta.yaml --name fold-0-twitter-ws-128-clip-roberta --group lcmr3s --dataset twitter --fold 0 --window_size 128 --position_embeddings zero --mode run --epochs 200 --batch_size 256
+python main.py  --config_file configs/combos/clip_roberta.yaml --name fold-1-twitter-ws-128-clip-roberta --group lcmr3s --dataset twitter --fold 1 --window_size 128 --position_embeddings zero --mode run --epochs 200 --batch_size 256
+python main.py  --config_file configs/combos/clip_roberta.yaml --name fold-2-twitter-ws-128-clip-roberta --group lcmr3s --dataset twitter --fold 2 --window_size 128 --position_embeddings zero --mode run --epochs 200 --batch_size 256
+python main.py  --config_file configs/combos/clip_roberta.yaml --name fold-3-twitter-ws-128-clip-roberta --group lcmr3s --dataset twitter --fold 3 --window_size 128 --position_embeddings zero --mode run --epochs 200 --batch_size 256
+python main.py  --config_file configs/combos/clip_roberta.yaml --name fold-4-twitter-ws-128-clip-roberta --group lcmr3s --dataset twitter --fold 4 --window_size 128 --position_embeddings zero --mode run --epochs 200 --batch_size 256
+
 python evaluate.py  --config_file configs/combos/clip_roberta.yaml --name fold-0-twitter-ws-128-clip-roberta --group lcmr3s --dataset twitter --fold 0 --window_size 128  --position_embeddings zero --output_dir twitter
+python evaluate.py  --config_file configs/combos/clip_roberta.yaml --name fold-1-twitter-ws-128-clip-roberta --group lcmr3s --dataset twitter --fold 1 --window_size 128  --position_embeddings zero --output_dir twitter
+python evaluate.py  --config_file configs/combos/clip_roberta.yaml --name fold-2-twitter-ws-128-clip-roberta --group lcmr3s --dataset twitter --fold 2 --window_size 128  --position_embeddings zero --output_dir twitter
+python evaluate.py  --config_file configs/combos/clip_roberta.yaml --name fold-3-twitter-ws-128-clip-roberta --group lcmr3s --dataset twitter --fold 3 --window_size 128  --position_embeddings zero --output_dir twitter
+python evaluate.py  --config_file configs/combos/clip_roberta.yaml --name fold-4-twitter-ws-128-clip-roberta --group lcmr3s --dataset twitter --fold 4 --window_size 128  --position_embeddings zero --output_dir twitter
 ```
 
 ## 👀 Visualization
 ```python
 # Visualize the sentiment distribution of posts 
-python visualization/sentiment_distribution.py --config_file configs/combos/clip_roberta.yaml --dataset twitter --fold 0 --window_size 128 --position_embeddings zero --kind test --weight best.ckpt
+python visualization/sentiment_distribution.py --config_file configs/combos/clip_roberta.yaml --dataset twitter --fold 0 --window_size 128 --position_embeddings zero --kind test --weight best_fold_0.ckpt
+python visualization/sentiment_distribution.py --config_file configs/combos/clip_roberta.yaml --dataset twitter --fold 1 --window_size 128 --position_embeddings zero --kind test --weight best_fold_1.ckpt
+python visualization/sentiment_distribution.py --config_file configs/combos/clip_roberta.yaml --dataset twitter --fold 2 --window_size 128 --position_embeddings zero --kind test --weight best_fold_2.ckpt
+python visualization/sentiment_distribution.py --config_file configs/combos/clip_roberta.yaml --dataset twitter --fold 3 --window_size 128 --position_embeddings zero --kind test --weight best_fold_3.ckpt
+python visualization/sentiment_distribution.py --config_file configs/combos/clip_roberta.yaml --dataset twitter --fold 4 --window_size 128 --position_embeddings zero --kind test --weight best_fold_4.ckpt
 
 # Visualize the attention map of posts
-python visualization/post_attention.py --config_file configs/combos/clip_roberta.yaml --dataset twitter --fold 0 --window_size 128 --position_embeddings zero --kind test --weight best.ckpt
+python visualization/post_attention.py --config_file configs/combos/clip_roberta.yaml --dataset twitter --fold 0 --window_size 128 --position_embeddings zero --kind test --weight best_fold_0.ckpt
+python visualization/post_attention.py --config_file configs/combos/clip_roberta.yaml --dataset twitter --fold 1 --window_size 128 --position_embeddings zero --kind test --weight best_fold_1.ckpt
+python visualization/post_attention.py --config_file configs/combos/clip_roberta.yaml --dataset twitter --fold 2 --window_size 128 --position_embeddings zero --kind test --weight best_fold_2.ckpt
+python visualization/post_attention.py --config_file configs/combos/clip_roberta.yaml --dataset twitter --fold 3 --window_size 128 --position_embeddings zero --kind test --weight best_fold_3.ckpt
+python visualization/post_attention.py --config_file configs/combos/clip_roberta.yaml --dataset twitter --fold 4 --window_size 128 --position_embeddings zero --kind test --weight best_fold_4.ckpt
 
 # Visualize state space of depressed and non-depressed users
 ## Depressed Users
-python visualization/state_space.py --config_file configs/combos/clip_roberta.yaml --dataset twitter --fold 0 --window_size 128 --position_embeddings zero --kind test --type Depressed --weight best.ckpt
+python visualization/state_space.py --config_file configs/combos/clip_roberta.yaml --dataset twitter --fold 0 --window_size 128 --position_embeddings zero --kind test --type Depressed --weight best_fold_0.ckpt
+python visualization/state_space.py --config_file configs/combos/clip_roberta.yaml --dataset twitter --fold 1 --window_size 128 --position_embeddings zero --kind test --type Depressed --weight best_fold_1.ckpt
+python visualization/state_space.py --config_file configs/combos/clip_roberta.yaml --dataset twitter --fold 2 --window_size 128 --position_embeddings zero --kind test --type Depressed --weight best_fold_2.ckpt
+python visualization/state_space.py --config_file configs/combos/clip_roberta.yaml --dataset twitter --fold 3 --window_size 128 --position_embeddings zero --kind test --type Depressed --weight best_fold_3.ckpt
+python visualization/state_space.py --config_file configs/combos/clip_roberta.yaml --dataset twitter --fold 4 --window_size 128 --position_embeddings zero --kind test --type Depressed --weight best_fold_4.ckpt
+
 ## Non-Depressed Users
-python visualization/state_space.py --config_file configs/combos/clip_roberta.yaml --dataset twitter --fold 0 --window_size 128 --position_embeddings zero --kind test --type Non-Depressed --weight best.ckpt
+python visualization/state_space.py --config_file configs/combos/clip_roberta.yaml --dataset twitter --fold 0 --window_size 128 --position_embeddings zero --kind test --type Non-Depressed --weight best_fold_0.ckpt
+python visualization/state_space.py --config_file configs/combos/clip_roberta.yaml --dataset twitter --fold 1 --window_size 128 --position_embeddings zero --kind test --type Non-Depressed --weight best_fold_1.ckpt
+python visualization/state_space.py --config_file configs/combos/clip_roberta.yaml --dataset twitter --fold 2 --window_size 128 --position_embeddings zero --kind test --type Non-Depressed --weight best_fold_2.ckpt
+python visualization/state_space.py --config_file configs/combos/clip_roberta.yaml --dataset twitter --fold 3 --window_size 128 --position_embeddings zero --kind test --type Non-Depressed --weight best_fold_3.ckpt
+python visualization/state_space.py --config_file configs/combos/clip_roberta.yaml --dataset twitter --fold 4 --window_size 128 --position_embeddings zero --kind test --type Non-Depressed --weight best_fold_4.ckpt
 ```
 
