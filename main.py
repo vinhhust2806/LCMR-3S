@@ -42,7 +42,7 @@ os.environ["WANDB_MODE"] = args.mode
 os.environ["WANDB_NAME"] = args.name
 os.environ["WANDB_NOTES"] = args.notes
 
-wandb.init(project="COLING2025", group=args.group, entity="DepressionDetection")
+wandb.init(project="Depression-Detection", group=args.group, entity="AI")
 
 wandb.config.update(vars(args))
 wandb.config.update({"config": cfg})
